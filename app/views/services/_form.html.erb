@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :service_name, style: "display: block" %>
-    <%= form.text_field :service_name %>
+    <%= form.select :service_name, Service.service_names.keys, { prompt: 'Select a status' } %>
   </div>
 
   <div>
@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.select :status, Service.statuses.keys, { prompt: 'Select a status' } %>
   </div>
 
   <div>

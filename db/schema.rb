@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_24_231143) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_231310) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_231143) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vehicle_services", force: :cascade do |t|
+    t.bigint "vehicle_id", null: false
+    t.bigint "service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_vehicle_services_on_service_id"
+    t.index ["vehicle_id"], name: "index_vehicle_services_on_vehicle_id"
+  end
+
   create_table "vehicles", force: :cascade do |t|
     t.string "brand"
     t.string "model"
@@ -58,5 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_231143) do
   end
 
   add_foreign_key "appointments", "vehicles"
+  add_foreign_key "vehicle_services", "services"
+  add_foreign_key "vehicle_services", "vehicles"
   add_foreign_key "vehicles", "users"
 end
