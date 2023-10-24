@@ -1,22 +1,14 @@
 <div id="<%= dom_id vehicle %>">
-  <p>
-    <strong>Brand:</strong>
-    <%= vehicle.brand %>
-  </p>
 
-  <p>
-    <strong>Model:</strong>
-    <%= vehicle.model %>
-  </p>
-
-  <p>
-    <strong>Plate number:</strong>
-    <%= vehicle.plate_number %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= vehicle.user_id %>
-  </p>
-
-</div>
+<tbody>
+  <tr>
+    <td><%= vehicle.brand %></td>
+    <td><%= vehicle.model %></td>
+    <td><%= vehicle.plate_number %></td>
+    <td>  <% if local_assigns[:show_link] %>
+    <p>
+      <%= link_to 'Show this vehicle', vehicle %>
+    </p>
+  <% end %></td>
+  </tr>
+</tbody>

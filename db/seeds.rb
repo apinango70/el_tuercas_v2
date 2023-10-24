@@ -9,4 +9,16 @@
   )
 end
 
+# Crea 30 vehículos asociados a usuarios existentes
+users = User.all
+
+30.times do
+  Vehicle.create(
+    brand: Faker::Vehicle.make,
+    model: Faker::Vehicle.model,
+    plate_number: Faker::Vehicle.license_plate,
+    user: users.sample
+  )
+end
+
 puts "Seed data generated successfully!"
