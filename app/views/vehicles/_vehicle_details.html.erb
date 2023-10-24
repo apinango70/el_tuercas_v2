@@ -1,0 +1,17 @@
+<div id="<%= dom_id vehicle %>">
+  <div class="card-body">
+    <h5 class="card-title"><%= label_tag "Client: " %> <%= @user.full_name %></h5>
+    <p class="card-text"><%= label_tag "Brand: " %> <%= vehicle.brand %></p>
+    <p class="card-text"><%= label_tag "Model: " %> <%= vehicle.model %></p>
+    <p class="card-text"><%= label_tag "Plate number: " %> <%= vehicle.plate_number %></p>
+
+    <% if @appointment && @appointment.appointment_date %>
+      <p><strong>Appointment date:</strong> <%= @appointment.appointment_date.to_date.strftime('%d-%m-%Y') %></p>
+    <% else %>
+      <p><strong>No hay cita programada para este vehículo.</strong></p>
+    <% end %>
+    
+    <%= link_to 'Edit', edit_vehicle_path(vehicle), class: "btn btn-primary" %>
+    <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-primary" %>
+  </div>
+</div>

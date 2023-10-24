@@ -1,10 +1,21 @@
-<p style="color: green"><%= notice %></p>
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="card shadow">
+            <div class="card-title text-center border-bottom">
+              <h2 class="p-3">Vehicle info</h2>
+            </div>
+            <div class="card-body">
+              <div id="<%= dom_id @vehicle %>">
+                <%= render partial: 'vehicles/vehicle_details', locals: { vehicle: @vehicle, show_link: false } %>
 
-<%= render @vehicle %>
+              </div>
+              
+              <%= button_to "Destroy this vehicle", @vehicle, method: :delete, class: "btn btn-danger", style: "text-decoration:none;color:white;" %>
 
-<div>
-  <%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle) %> |
-  <%= link_to "Back to vehicles", vehicles_path %>
-
-  <%= button_to "Destroy this vehicle", @vehicle, method: :delete %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

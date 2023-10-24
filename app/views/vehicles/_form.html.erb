@@ -25,6 +25,14 @@
     <%= form.text_field :plate_number, class:'form-control', required: true %>
   </div>
 
+<%= form.fields_for :appointment do |appointment_form| %>
+  <%= appointment_form.hidden_field :id %>
+  <div>
+    <%= appointment_form.label :appointment_date, "Fecha de Cita", style: "display: block" %>
+    <%= appointment_form.date_field :appointment_date, class: 'form-control' %>
+  </div>
+<% end %>
+  
   <!--Toma el user_id del user seleccionado y lo pasa al form para la relación-->
   <%= form.hidden_field :user_id, value: @vehicle.user_id %>
   
