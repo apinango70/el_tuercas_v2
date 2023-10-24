@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :services
   resources :vehicles
   get 'admin/create_user'
   get 'admin/edit_user'

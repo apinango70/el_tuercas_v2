@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_name: MyString
+  spare_parts: MyString
+  deadline: 2023-10-24
+  status: MyString
+  vehicle_id: 1
+
+two:
+  service_name: MyString
+  spare_parts: MyString
+  deadline: 2023-10-24
+  status: MyString
+  vehicle_id: 1

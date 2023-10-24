@@ -5,7 +5,7 @@ class VehiclesController < ApplicationController
   def index
     # Obtener todos los usuarios con sus vehículos asociados
     @users = User.includes(:vehicles)
-    @users = User.order(created_at: :desc)
+    @pagy, @users = pagy(User.order(created_at: :desc), items: 5) # Paginación
     #HAbilitar para usar paginación
     #@pagy, @users = pagy(User.order(created_at: :desc), items: 5) # Paginación
     # Preparar un array de [user, Vehículos] para la vista
